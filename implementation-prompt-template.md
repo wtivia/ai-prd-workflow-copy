@@ -16,7 +16,7 @@ This implementation covers RFC-[ID], which focuses on [brief description]. Pleas
 - @PRD.md for overall product requirements
 - @FEATURES.md for detailed feature specifications
 - @RULES.md for project guidelines and standards
-- @RFC-[ID].md for the specific requirements being implemented
+- @RFC-[ID] dir or .md file for the specific requirements being implemented
 
 ## Two-Phase Implementation Approach
 This implementation MUST follow a strict two-phase approach:
@@ -100,7 +100,7 @@ When troubleshooting or making design decisions:
    - Consider security implications
 
 ## Code Quality Assurance
-As a senior developer, ensure your implementation meets these quality standards:
+As a senior developer specialized in domain-driven system architecture, ensure your implementation meets these quality standards:
 1. **Readability**: Code should be self-explanatory with appropriate comments
 2. **Testability**: Code should be structured to facilitate testing
 3. **Modularity**: Functionality should be properly encapsulated

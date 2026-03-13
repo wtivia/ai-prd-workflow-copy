@@ -51,6 +51,66 @@ Generate the RFCs files under RFCs folder including PROMPT CREATION md files by:
      * Testing strategy with specific test cases
      * Performance considerations and optimization techniques
 
+Propose a structure, following this sections template:
+```
+/<feature-rfc-name dir or file>/
+  README.md 
+    - docs overview file, if the feature is a dir not a single file
+    - Include a summary of what this feature docs covers
+    - List all features/requirements addressed in the docs
+    - Explicitly identify which previous features this feature builds upon
+    - Specify which future features were build upon this feature
+    - Estimate relative complexity (Low, Medium, High)
+    - If provided, document detailed acceptance criteria for each feature that the implementation satisfied
+  /diagrams/ 
+    - all big/extracted diagrams go here, named clearly
+    *.mmd
+    *.puml
+  /01-architecture/ - contains detailed technical approach and architecture considerations, overview/explanation, like services-catalog, data flow diagrams between parties/services
+  /02-domain/ 
+    - data models, states, and theirs' or their properties' core state behaviours/processing/lifecycle logic (core business logic) description if any. 
+    - Documented data models and database schemas/their changes
+    state-machines.md or lifecycle.md 
+    - data models and their properties lifecycle/state machines
+    db.md
+  /03-behaviours-and-flows/
+    - usecases, complex behaviours and flows of the investigated logic (mainly application logic that uses business logic and domain), like request/response flows, async flows, batch/scheduled jobs flows, webhooks flows, etc. 
+    - Documented with diagrams and code instruction references if needed.
+    <flow-name>.md - each flow in a separate file, with diagrams and code references
+    state-machine.md - if there is a state machine related to the application logic, it can be described in a separate file or included in the flow files if not too big
+  /04-operating-logic/ 
+    - Execution Mechanics of what operations this logic can run and how, not the same as business/application logic flows, similar to operating details of the application logic. Should describe not how the logic works, but what, how, when it (and its result) is triggered/processed and side effects.
+    - how feature's logic parts are configured, operated/managed, maintained, triggered, what are the entrypoints, what data is required for the trigger, what are the side effects of the trigger, how the processing of the logic result is orchestrated
+    - orchestration, scheduled tasks', tracking/monitoring/alerting's configs and logic, if any
+    - short description of used testing strategy with specific/complex test cases to implement, aimed type and quality of the coverage
+  /05-interface/ 
+    - description of any exposed external or internal (between parts of the system) contracts/interfaces/entrypoints
+    - Documents api, message schemas, api gateway logic, scheduled/celery tasks supported interface etc.
+    api.md
+    message-schemas.md
+  /06-code-instructions/ - any code-related map/references or other info to document. Should not include details on how to run and test this code, that should be covered by the repository's docs.
+    code-map.md
+  /07-infrastructure/
+    - if identified any cloud or server infrastructure related to the investigated logic, it shall be described here
+    - for example terraform files, helm charts, service mesh config, ec2 instances configs, etc.
+  /08-considerations/
+    - Performance considerations and optimization techniques of the implementation
+    - Security concerns and required safeguards of the implementation
+    - Compliance and regulatory considerations
+    - risks, cross-cutting logic, hidden logic that could not be put in any of previous dirs
+    - key/critical findings, unresolved questions regarding the implementation, open questions, etc
+```
+
+Ensure:
+
+- Each file ≤ 300 lines
+- Cross-links between files
+- If total length of feature's docs content/parts is <1000 lines and it doesn't have nested features and no long/extracted diagrams, it can be a single file, otherwise a dir
+- If feature docs part's (like 01-architecture) content is less than a single file size threshold (300 lines) can be made a file instead of a dir, and vice versa.
+- Points/dirs are created only when there is content to put in them, do not create empty dirs/files just for the structure
+- Depending on complexity a nested parts of features, or nested features can be added, but all follow the same general and file structure rules
+
+
 4. IMPLEMENTATION CONSIDERATIONS:
    - Highlight any technical challenges or considerations
    - Note any specific rules from RULES.md that particularly apply to this RFC
