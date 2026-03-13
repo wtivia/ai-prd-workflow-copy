@@ -54,51 +54,100 @@ Generate the RFCs files under RFCs folder including PROMPT CREATION md files by:
 Propose a structure, following this sections template:
 ```
 /<feature-rfc-name dir or file>/
-  README.md 
-    - docs overview file, if the feature is a dir not a single file
-    - Include a summary of what this feature docs covers
-    - List all features/requirements addressed in the docs
+  README.md
+    - Entry overview for the specification
+    - High-level summary of the proposed solution
+    - List of features/requirements and use-cases addressed by this specification
     - Explicitly identify which previous features this feature builds upon
-    - Specify which future features were build upon this feature
-    - Estimate relative complexity (Low, Medium, High)
-    - If provided, document detailed acceptance criteria for each feature that the implementation satisfied
-  /diagrams/ 
-    - all big/extracted diagrams go here, named clearly
+    - Specify which future features are expected to build on this feature
+    - Key architectural decisions and rationale
+    - Estimate relative complexity (Low, Medium, High) for features
+    - Acceptance criteria / success criteria the implementation must satisfy
+    - Links to all sections below
+
+  /diagrams/
+    - Extracted diagrams referenced by documentation
+    - Diagrams must be clearly named and referenced from files
     *.mmd
     *.puml
-  /01-architecture/ - contains detailed technical approach and architecture considerations, overview/explanation, like services-catalog, data flow diagrams between parties/services
-  /02-domain/ 
-    - data models, states, and theirs' or their properties' core state behaviours/processing/lifecycle logic (core business logic) description if any. 
-    - Documented data models and database schemas/their changes
-    state-machines.md or lifecycle.md 
-    - data models and their properties lifecycle/state machines
-    db.md
+
+  /01-architecture/
+    - System-level architecture of the feature
+    - Describes the high-level technical structure, system components and services involved in the feature
+    - Overview of the interaction with existing systems and external services
+    - Data flow/topology between parties or services
+
+  /02-domain/
+    - Domain data models and business logic
+    - Domain entities, attributes, invariants and lifecycle behaviour
+    - Business rules and validation rules
+    - Persistence model related to the domain
+    - data retention policies if applicable
+    - domain invariants, validations and business constraints
+    - Domain models' and their properties' lifecycle/state machines with states, transitions, guards, side effects, error states, etc.
+    persistence.md
+    <lifecycle>.md
+    <state-machine>.md
+
   /03-behaviours-and-flows/
-    - usecases, complex behaviours and flows of the investigated logic (mainly application logic that uses business logic and domain), like request/response flows, async flows, batch/scheduled jobs flows, webhooks flows, etc. 
-    - Documented with diagrams and code instruction references if needed.
-    <flow-name>.md - each flow in a separate file, with diagrams and code references
-    state-machine.md - if there is a state machine related to the application logic, it can be described in a separate file or included in the flow files if not too big
-  /04-operating-logic/ 
-    - Execution Mechanics of what operations this logic can run and how, not the same as business/application logic flows, similar to operating details of the application logic. Should describe not how the logic works, but what, how, when it (and its result) is triggered/processed and side effects.
-    - how feature's logic parts are configured, operated/managed, maintained, triggered, what are the entrypoints, what data is required for the trigger, what are the side effects of the trigger, how the processing of the logic result is orchestrated
-    - orchestration, scheduled tasks', tracking/monitoring/alerting's configs and logic, if any
-    - short description of used testing strategy with specific/complex test cases to implement, aimed type and quality of the coverage
-  /05-interface/ 
-    - description of any exposed external or internal (between parts of the system) contracts/interfaces/entrypoints
-    - Documents api, message schemas, api gateway logic, scheduled/celery tasks supported interface etc.
-    api.md
-    message-schemas.md
-  /06-code-instructions/ - any code-related map/references or other info to document. Should not include details on how to run and test this code, that should be covered by the repository's docs.
-    code-map.md
+    - Application logic flows using the domain
+    - Describes how requests, events or jobs move through the system
+    - Covers synchronous and asynchronous behaviours
+    - Focuses on functional behaviour from trigger to outcome
+    <flow-name>.md
+      - Each flow in a separate file, with diagrams and code references
+      - Trigger
+      - Preconditions
+      - Step-by-step processing sequence
+      - Error paths
+      - Side effects and outputs
+      - Dependencies on domain entities or interfaces
+
+  /04-runtime-operations/
+    - Runtime execution model of the feature in production
+    - Describes how execution is initiated, coordinated, retried, constrained and recovered
+    - Must not duplicate business/application flows
+    - triggers logic entrypoints that activate feature execution, required data or conditions for execution to start
+    orchestration.md
+    - orchestration: coordination between services, processes or jobs, handoff between sync/async stages if applicable
+    - scheduling logic: cron jobs, polling loops, delayed execution, recurring jobs
+    - retry strategies, backoff, deduplication and idempotency guarantees
+    - concurrency-control: locking, single-flight execution, race prevention, partition ownership
+    - execution timeouts, throttling, backpressure, dependency limits
+    - state reconciliation, replay or drift-correction behaviour if applicable
+
+  /05-interfaces/
+    - External and internal contracts exposed by the feature
+    - Describes interfaces, not behavioural sequences
+    - Defines APIs, message schemas, api gateway logic, scheduled/celery tasks supported interface etc
+
+  /06-code-instructions/
+    - Implementation guidance and mapping to repository structure
+    - Helps developers or AI agents locate where logic should live
+    - Should not duplicate repository-wide run/test instructions
+    - entrypoints: controllers, handlers, consumers, schedulers
+    - modules and their responsibilities
+    - integration-points of services/components where feature logic must be integrated
+    - code-map from spec sections to concrete code locations
+    - code-specific testing instructions and instructions for mapping to test files and test cases
+
   /07-infrastructure/
-    - if identified any cloud or server infrastructure related to the investigated logic, it shall be described here
-    - for example terraform files, helm charts, service mesh config, ec2 instances configs, etc.
+    - Any cloud or server infrastructure relevant to the logic ot implement, shall be described here
+    - for example terraform files, helm charts, service mesh/network config, ec2 instances configs, etc.
+
   /08-considerations/
-    - Performance considerations and optimization techniques of the implementation
-    - Security concerns and required safeguards of the implementation
-    - Compliance and regulatory considerations
-    - risks, cross-cutting logic, hidden logic that could not be put in any of previous dirs
-    - key/critical findings, unresolved questions regarding the implementation, open questions, etc
+    - Cross-cutting concerns, quality attributes and review topics
+    - Covers what must be ensured, measured or accepted across the feature
+    - expected performance characteristics,  bottlenecks, scaling expectations and optimization considerations
+    - security risks and safeguards, authentication, authorization, secrets and sensitive data handling
+    - regulatory, policy or audit requirements compliance, if any
+    - observability: metrics, logs, tracing and alerting expectations
+    - testing considerations: strategy, critical edge cases and failure scenarios, expected coverage focus and verification boundaries
+    - known risks or limitations of the design
+    - open/unresolved design questions
+    - identified debt introduced or deferred
+    - notable design tradeoffs and why they were accepted
+    - release strategy, rollout stages, feature flag usage, rollback approach and migration considerations at a high level
 ```
 
 Ensure:
