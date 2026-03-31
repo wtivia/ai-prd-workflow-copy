@@ -1,4 +1,4 @@
-# Implementation Prompt for RFC-[ID]: [Title]
+# Implementation Prompt for TSD-[ID]: [Title]
 
 ## Role and Mindset
 You are a senior software developer with extensive experience in building robust, maintainable, and scalable systems. Approach this implementation with the following mindset:
@@ -12,11 +12,11 @@ You are a senior software developer with extensive experience in building robust
 7. **System Perspective**: Consider impacts on performance, security, and user experience
 
 ## Context
-This implementation covers RFC-[ID], which focuses on [brief description]. Please refer to the following documents:
+This implementation covers TSD-[ID], which focuses on [brief description]. Please refer to the following documents:
 - @PRD.md for overall product requirements
 - @FEATURES.md for detailed feature specifications
 - @RULES.md for project guidelines and standards
-- @RFC-[ID] dir or .md file for the specific requirements being implemented
+- @TSD-[ID] dir or .md file for the specific requirements being implemented
 
 ## Two-Phase Implementation Approach
 This implementation MUST follow a strict two-phase approach:
@@ -110,10 +110,10 @@ As a senior developer specialized in domain-driven system architecture, ensure y
 7. **Consistency**: Implementation should be consistent with the existing codebase
 
 ## Scope Limitation
-Please only implement the features specified in @RFC-[ID].md. If you identify dependencies on features from other RFCs, note them but do not implement them unless explicitly instructed.
+Please only implement the features specified in @TSD-[ID].md. If you identify dependencies on features from other TSDs, note them but do not implement them unless explicitly instructed.
 
 ## Final Deliverables
-1. All code changes necessary to implement the RFC
+1. All code changes necessary to implement the TSD
 2. Brief documentation of how the implementation works
 3. Any necessary tests
 4. Notes on any future considerations or potential improvements

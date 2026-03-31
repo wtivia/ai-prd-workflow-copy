@@ -1,10 +1,10 @@
-You are an expert software architect and project manager tasked with breaking down the attached Product Requirements Document (PRD), features list, and project rules into manageable Request for Comments (RFC) documents for implementation.
+You are an expert software architect and project manager tasked with breaking down the attached Product Requirements Document (PRD), features list, and project rules into manageable Technical Specification Document (TSD) documents for implementation.
 
-Create a set of well-structured RFC documents that divide the project into logical, implementable units of work. Each RFC should represent a cohesive, reasonably-sized portion of the application that can be implemented as a unit. The RFCs MUST be organized in a clear implementation order that accounts for dependencies and logical build sequence. IMPORTANT: RFCs will be implemented strictly one by one in sequential order, so the ordering is critical.
+Create a set of well-structured TSD documents that divide the project into logical, implementable units of work. Each TSD should represent a cohesive, reasonably-sized portion of the application that can be implemented as a unit. The TSDs MUST be organized in a clear implementation order that accounts for dependencies and logical build sequence. IMPORTANT: TSDs will be implemented strictly one by one in sequential order, so the ordering is critical.
 
-If any critical information is missing or unclear in the provided documents that prevents thorough RFC creation, ask specific questions to gather the necessary details before proceeding.
+If any critical information is missing or unclear in the provided documents that prevents thorough TSD creation, ask specific questions to gather the necessary details before proceeding.
 
-Generate the RFCs files under RFCs folder including PROMPT CREATION md files by:
+Generate the TSDs files under TSDs folder including PROMPT CREATION md files by:
 
 1. IMPLEMENTATION ORDER ANALYSIS:
    - Analyze the entire project to determine the optimal implementation sequence
@@ -12,29 +12,29 @@ Generate the RFCs files under RFCs folder including PROMPT CREATION md files by:
    - Create a directed graph of feature dependencies (described textually)
    - Determine critical path items that block other development
    - Group features into implementation phases based on dependencies
-   - Assign sequential numbers to RFCs that reflect their strict implementation order (001, 002, 003, etc.)
-   - CRITICAL: Each RFC will be implemented one at a time in numerical order, so the sequence must be logical and buildable
-   - Each RFC must be fully implementable after all previous RFCs in the sequence have been completed
-   - No parallel implementation will occur - RFC-002 will only begin after RFC-001 is complete
+   - Assign sequential numbers to TSDs that reflect their strict implementation order (001, 002, 003, etc.)
+   - CRITICAL: Each TSD will be implemented one at a time in numerical order, so the sequence must be logical and buildable
+   - Each TSD must be fully implementable after all previous TSDs in the sequence have been completed
+   - No parallel implementation will occur - TSD-002 will only begin after TSD-001 is complete
    - Map all dependencies between features to ensure the sequential order is feasible
 
 2. FEATURE GROUPING:
-   - Group related features that should be implemented together in a single RFC
-   - Ensure each RFC represents a logical, cohesive unit of functionality
-   - Balance RFC size - not too small (trivial) or too large (unmanageable)
+   - Group related features that should be implemented together in a single TSD
+   - Ensure each TSD represents a logical, cohesive unit of functionality
+   - Balance TSD size - not too small (trivial) or too large (unmanageable)
    - Consider dependencies between features when grouping
    - Identify shared components or services that multiple features might depend on
    - Organize groups to align with the strict sequential implementation order
    - Ensure features that build upon each other are grouped in the correct sequence
 
-3. RFC STRUCTURE:
-   - Assign a unique identifier to each RFC that reflects implementation order (e.g., RFC-001-User-Authentication for the first component to be implemented)
+3. TSD STRUCTURE:
+   - Assign a unique identifier to each TSD that reflects implementation order (e.g., TSD-001-User-Authentication for the first component to be implemented)
    - Provide a clear title that describes the functionality
-   - Include a summary of what the RFC covers
-   - List all features/requirements addressed in the RFC
+   - Include a summary of what the TSD covers
+   - List all features/requirements addressed in the TSD
    - Detail technical approach and architecture considerations
-   - Explicitly identify which previous RFCs this RFC builds upon
-   - Specify which future RFCs will build upon this RFC
+   - Explicitly identify which previous TSDs this TSD builds upon
+   - Specify which future TSDs will build upon this TSD
    - Estimate relative complexity (Low, Medium, High)
    - Include detailed acceptance criteria for each feature
    - Specify any API contracts or interfaces that will be exposed
@@ -162,7 +162,7 @@ Ensure:
 
 4. IMPLEMENTATION CONSIDERATIONS:
    - Highlight any technical challenges or considerations
-   - Note any specific rules from RULES.md that particularly apply to this RFC
+   - Note any specific rules from RULES.md that particularly apply to this TSD
    - Identify potential edge cases or special handling requirements
    - Suggest testing approaches for the functionality
    - Specify performance expectations and optimization considerations
@@ -171,35 +171,35 @@ Ensure:
    - Outline error handling strategies and fallback mechanisms
    - Provide guidance on accessibility requirements
    - Include internationalization/localization considerations
-   - Explain how this RFC fits into the overall sequential implementation plan
-   - Describe how this RFC builds upon the functionality implemented in previous RFCs
+   - Explain how this TSD fits into the overall sequential implementation plan
+   - Describe how this TSD builds upon the functionality implemented in previous TSDs
 
 5. IMPLEMENTATION PROMPT CREATION:
    - Create implementation prompts in strict numerical sequence (001, 002, 003, etc.)
-   - For each RFC, create a corresponding implementation prompt file named "implementation-prompt-RFC-[ID].md"
+   - For each TSD, create a corresponding implementation prompt file named "implementation-prompt-TSD-[ID].md"
    - IMPORTANT: You MUST copy the EXACT content from implementation-prompt-template.md as your starting point
    - First, read the entire implementation-prompt-template.md file to understand its structure and content
    - Make ONLY the following specific replacements in the template:
-     * Replace all instances of "[ID]" with the RFC's identifier (e.g., "001")
-     * Replace all instances of "[Title]" with the RFC's title (e.g., "User Authentication")
-     * Replace all instances of "[brief description]" with a concise summary of the RFC's purpose
+     * Replace all instances of "[ID]" with the TSD's identifier (e.g., "001")
+     * Replace all instances of "[Title]" with the TSD's title (e.g., "User Authentication")
+     * Replace all instances of "[brief description]" with a concise summary of the TSD's purpose
    - DO NOT modify, remove, or add any other content from the template
    - DO NOT change any section headings, formatting, or structure
-   - DO NOT duplicate implementation details in the prompt that are already included in the RFC document
+   - DO NOT duplicate implementation details in the prompt that are already included in the TSD document
    - Verify that each implementation prompt maintains the exact same sections and instructions as the template
    - Double-check that all placeholders have been properly replaced before finalizing
 
-6. RFCS.MD CREATION:
-   - Create a master RFCS.md file that lists all RFCs in their strict numerical implementation order
-   - Include a dependency graph or table showing relationships between RFCs
+6. README.MD CREATION:
+   - Create a master README.md file that lists all TSDs in their strict numerical implementation order
+   - Include a dependency graph or table showing relationships between TSDs
    - Provide a clear, sequential implementation roadmap
-   - Group RFCs into implementation phases if appropriate
-   - For each RFC, indicate which previous RFCs it builds upon
-   - For each RFC, indicate which future RFCs will build upon it
+   - Group TSDs into implementation phases if appropriate
+   - For each TSD, indicate which previous TSDs it builds upon
+   - For each TSD, indicate which future TSDs will build upon it
    - Make it clear that implementation will proceed strictly in the numbered sequence
 
 7. TECHNICAL SPECIFICATIONS:
-   - For each RFC, provide detailed technical specifications including:
+   - For each TSD, provide detailed technical specifications including:
      * Component architecture diagrams (described textually)
      * Data flow diagrams (described textually)
      * API endpoints with request/response formats
@@ -210,7 +210,7 @@ Ensure:
      * Specific algorithms or business logic pseudocode
      * Error codes and handling mechanisms
      * Logging and monitoring requirements
-   - Explain how each technical specification builds upon or extends the implementations from previous RFCs
+   - Explain how each technical specification builds upon or extends the implementations from previous TSDs
    - Ensure specifications account for the sequential implementation order
 
 8. IMPLEMENTATION CONSTRAINTS:
@@ -222,8 +222,8 @@ Ensure:
    - Highlight constraints that affect the sequential implementation order
    - Ensure constraints are addressed in the appropriate sequence
 
-First, provide a brief overview of how you've approached breaking down the project, with special emphasis on the sequential implementation order you've determined. Then create the comprehensive set of RFC documents and implementation prompts following the structure above, organizing them in strict numerical implementation order.
+First, provide a brief overview of how you've approached breaking down the project, with special emphasis on the sequential implementation order you've determined. Then create the comprehensive set of TSD documents and implementation prompts following the structure above, organizing them in strict numerical implementation order.
 
-Ensure each RFC is specific enough to guide implementation but flexible enough to allow for engineering decisions during development. Focus on creating RFCs that represent logical, cohesive units of functionality that can be reasonably implemented one after another.
+Ensure each TSD is specific enough to guide implementation but flexible enough to allow for engineering decisions during development. Focus on creating TSDs that represent logical, cohesive units of functionality that can be reasonably implemented one after another.
 
-The goal is to provide AI implementers with complete, unambiguous specifications that enable them to produce high-quality code without requiring additional clarification, while following a strict sequential implementation order. Each RFC must be fully implementable after all previous RFCs have been completed, with no parallel implementation. 
+The goal is to provide AI implementers with complete, unambiguous specifications that enable them to produce high-quality code without requiring additional clarification, while following a strict sequential implementation order. Each TSD must be fully implementable after all previous TSDs have been completed, with no parallel implementation. 

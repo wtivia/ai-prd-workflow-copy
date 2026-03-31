@@ -18,7 +18,7 @@ Assess and integrate the proposed changes by:
    - Determine if each change is a "must-have" or "nice-to-have"
 
 2. IMPACT ANALYSIS:
-   - Identify all components, features, and RFCs affected by each change
+   - Identify all components, features, and TSDs affected by each change
    - Assess impact on project timeline and resources
    - Evaluate technical dependencies and potential ripple effects
    - Determine impact on already completed or in-progress work

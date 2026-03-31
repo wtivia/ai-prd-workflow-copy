@@ -11,19 +11,19 @@
 A collection of reusable AI prompts to streamline your product development workflow. These prompts can be copied and pasted into any AI assistant (like Cursor) to automate common tasks in your product development process.
 
 > [!TIP]
-> **Why PRD & RFC Driven Development?** This approach significantly improves AI collaboration by providing clear boundaries, reducing hallucinations, and ensuring consistent understanding between humans and AI. [Jump to full benefits](#benefits-of-prd--rfc-driven-development)
+> **Why PRD & TSD Driven Development?** This approach significantly improves AI collaboration by providing clear boundaries, reducing hallucinations, and ensuring consistent understanding between humans and AI. [Jump to full benefits](#benefits-of-prd--ts-driven-development)
 
 ## Table of Contents
-- [Benefits of PRD & RFC Driven Development](#benefits-of-prd--rfc-driven-development)
+- [Benefits of PRD & TSD Driven Development](#benefits-of-prd--ts-driven-development)
 - [Available Prompts](#available-prompts)
 - [Recommended Workflow](#recommended-workflow)
 - [How to Use](#how-to-use)
 - [Quick Tips](#quick-tips)
 - [License](#license)
 
-## Benefits of PRD & RFC Driven Development
+## Benefits of PRD & TSD Driven Development
 
-Following a structured PRD & RFC driven development approach offers significant advantages, especially when collaborating with AI tools:
+Following a structured PRD & TSD driven development approach offers significant advantages, especially when collaborating with AI tools:
 
 <div align="center">
   <table>
@@ -43,13 +43,13 @@ Following a structured PRD & RFC driven development approach offers significant 
 </div>
 
 ### Enhanced AI Collaboration
-- **Clearer Instructions**: Well-defined PRDs and RFCs provide AI with precise context and requirements, resulting in more accurate implementations
+- **Clearer Instructions**: Well-defined PRDs and TSDs provide AI with precise context and requirements, resulting in more accurate implementations
 - **Reduced Hallucinations**: Structured documentation minimizes AI's tendency to "fill in the gaps" with incorrect assumptions
 - **Consistent Mental Model**: Both humans and AI work from the same documented understanding, reducing misalignment
 
 ### Improved Development Process
 - **Boundary Setting**: Clearly defined scope prevents AI from implementing unwanted or out-of-scope features
-- **Incremental Verification**: Breaking work into RFCs allows for validation at each step rather than only at project completion
+- **Incremental Verification**: Breaking work into TSDs allows for validation at each step rather than only at project completion
 - **Traceability**: Each implementation can be traced back to specific requirements, making it easier to verify correctness
 - **Reduced Rework**: Clear specifications from the start minimize the need for major revisions later
 
@@ -60,9 +60,9 @@ Following a structured PRD & RFC driven development approach offers significant 
 - **Faster Onboarding**: New team members or AI tools can quickly understand project goals and constraints
 
 ### AI-Specific Advantages
-- **Context Window Optimization**: Breaking large projects into focused RFCs helps AI work within context window limitations
+- **Context Window Optimization**: Breaking large projects into focused TSDs helps AI work within context window limitations
 - **Targeted Expertise**: Different aspects of the project can be directed to specialized AI models or prompts
-- **Iterative Refinement**: AI can suggest improvements to PRDs and RFCs before implementation begins
+- **Iterative Refinement**: AI can suggest improvements to PRDs and TSDs before implementation begins
 - **Quality Control**: Structured documentation provides clear criteria for AI to self-evaluate its outputs
 
 By following this methodology, you'll experience more productive AI collaboration, higher quality implementations, and a smoother overall development process.
@@ -73,8 +73,8 @@ By following this methodology, you'll experience more productive AI collaboratio
 - [**PRD Comprehensive Verification**](prd-comprehensive-verification-prompt.md) - Verify and improve your PRD by identifying critical gaps and quality issues
 - [**PRD to Features Extraction**](prd-to-features-prompt.md) - Extract and organize features from your PRD
 - [**PRD to Rules**](prd-to-rules-prompt.md) - Generate technical guidelines and standards for development
-- [**PRD to RFCs**](prd-to-rfcs-prompt.md) - Break down your PRD into manageable implementation units
-- [**Implementation Template**](implementation-prompt-template.md) - Template for implementing individual RFCs
+- [**PRD to TSDs**](prd-to-TSDs-prompt.md) - Break down your PRD into manageable implementation units
+- [**Implementation Template**](implementation-prompt-template.md) - Template for implementing individual TSDs
 - [**PRD Change Management**](prd-change-management-prompt.md) - Manage changes to your PRD during development
 
 ## Recommended Workflow
@@ -83,7 +83,7 @@ By following this methodology, you'll experience more productive AI collaboratio
   <pre>
   ┌─────────────┐     ┌─────────────┐     ┌─────────────┐     ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
   │    Create   │     │   Verify    │     │   Extract   │     │    Create   │     │   Generate  │     │  Implement  │
-  │     PRD     │────▶│     PRD     │────▶│   Features  │────▶│    Rules    │────▶│    RFCs     │────▶│    RFCs     │
+  │     PRD     │────▶│     PRD     │────▶│   Features  │────▶│    Rules    │────▶│  TSDs │────▶│  TSDs │
   └─────────────┘     └─────────────┘     └─────────────┘     └─────────────┘     └─────────────┘     └─────────────┘
   </pre>
 </div>
@@ -93,13 +93,13 @@ By following this methodology, you'll experience more productive AI collaboratio
 2. **Verify PRD** - Identify critical gaps and improve quality using the Comprehensive Verification prompt
 3. **Extract Features** - Transform your verified PRD into organized features with priorities and acceptance criteria
 4. **Create Rules** - Establish technical guidelines and standards based on your PRD and features
-5. **Generate RFCs** - Break down the project into logical, manageable implementation units
-6. **Implement RFCs** - Use the implementation template for each RFC to guide development
+5. **Generate TSDs** - Break down the project into logical, manageable implementation units
+6. **Implement TSDs** - Use the implementation template for each TSD to guide development
 
 ### Managing Changes
 When new requirements or changes arise during development:
 1. **Analyze Changes** - Use the Change Management prompt to assess impact and integration strategy
-2. **Update Documents** - Revise affected PRD, features, rules, and RFCs based on the analysis
+2. **Update Documents** - Revise affected PRD, features, rules, and TSDs based on the analysis
 3. **Continue Implementation** - Resume development with the updated documentation
 
 ## How to Use
